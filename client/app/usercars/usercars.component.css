@@ -1,0 +1,33 @@
+.imagesize {
+    width:200px;
+    height:auto;
+}
+
+.card {
+  min-width: 80%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.mat-header-cell {
+  font-size: 18px;
+  font-weight: 500;
+}
+.imgview { width: 80px; height: auto; }
+.mat-header-cell {
+  width: 200px;
+}

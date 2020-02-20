@@ -1,0 +1,91 @@
+
+<!-- <p>login works!</p> -->
+<!-- <div class="card">
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="input-group" [ngClass]="setClassEmail()">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+          <input class="form-control" type="email" name="email"
+                 formControlName="email" placeholder="Email" autofocus>
+        </div>
+        <div class="input-group" [ngClass]="setClassPassword()">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-key"></i>
+            </span>
+          </div>
+          <input class="form-control" type="password" name="password"
+                 formControlName="password" placeholder="Password">
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+          <i class="fa fa-sign-in"></i> Login
+        </button>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Login</h3>
+          </mat-card-title>
+          <mat-card-content>
+            <div class="example-container mat-elevation-z8">
+                <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                  <div class="row">
+                      <mat-error  *ngIf="loginForm.get('email').errors?.serverError">
+                          {{loginForm.get('email').errors?.serverError}}
+                      </mat-error>
+                  </div>
+                  <div class="row">
+                      <mat-form-field>
+                          <input matInput class="form-control" type="email" name="email"
+                          formControlName="email" placeholder="Email" autofocus>
+                      </mat-form-field>
+                    </div>
+                    <!-- <div class="input-group" [ngClass]="setClassEmail()">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-envelope"></i>
+                        </span>
+                      </div>
+                      <input class="form-control" type="email" name="email"
+                             formControlName="email" placeholder="Email" autofocus>
+                    </div> -->
+                  <div class="row">
+                      <mat-form-field>
+                          <input matInput class="form-control" type="password" name="password"
+                          formControlName="password" placeholder="Password">
+                      </mat-form-field>
+                    </div>
+                    <!-- <div class="input-group" [ngClass]="setClassPassword()">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-key"></i>
+                        </span>
+                      </div>
+                      <input class="form-control" type="password" name="password"
+                             formControlName="password" placeholder="Password">
+                    </div> -->
+                    <button mat-raised-button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+                      <i class="fa fa-sign-in"></i> Login
+                    </button>
+                  </form>      
+                  <div class="row">
+                      <br />
+                    <span>Don't have an account yet? Click to&nbsp;</span>
+                      <a routerLink="/register" routerLinkActive="active" *ngIf="!auth.loggedIn"> 
+                        <i class="fa fa-user-plus"></i> register
+                      </a>
+                  </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>

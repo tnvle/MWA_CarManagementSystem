@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
+        <!-- (ngSubmit)="onSubmit()" -->
+    <mat-form-field>
+            <mat-label>Select a Make</mat-label>
+            <mat-select formControlName="make"  >
+                <mat-option *ngFor="let mk of allMakes" [value]="mk._id">
+                    {{ mk.name }}
+                </mat-option>
+            </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+            <mat-label>Select a Model</mat-label>
+            <mat-select formControlName="model" >
+              <mat-option *ngFor="let mod of allModels" [value]="mod._id">
+                  {{ mod.name }}
+              </mat-option>
+            </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+            <mat-label>Select a Style</mat-label>
+            <mat-select formControlName="style" >
+              <mat-option *ngFor="let sty of allStyles" [value]="sty._id">
+                  {{ sty.name }}
+              </mat-option>
+            </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Select a Condition</mat-label>
+        <mat-select formControlName="condition" >
+            <mat-option *ngFor="let con of allConditions" [value]="con._id">
+                {{ con.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Select a Dealer</mat-label>
+        <mat-select formControlName="dealer" >
+            <mat-option *ngFor="let deal of allDealers" [value]="deal._id">
+                {{ deal.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Year" formControlName="year">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Price" formControlName="price">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+    </mat-form-field>
+    <!-- <mat-form-field> -->
+        <div class="row">
+            <input  type="file" (change)="onFileChange($event)"/>
+        </div>
+        <!-- <input matInput placeholder="Image Path" formControlName="imagePath" type="file" (change)="onFileChange($event)"/> -->
+    <!-- </mat-form-field> -->
+    <mat-form-field>
+        <input matInput placeholder="Mileage" formControlName="mileage">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ZipCode" formControlName="zipCode">
+    </mat-form-field>
+    <mat-form-field class="hidden-field">
+        <input matInput placeholder="id" formControlName="_id">
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!addCarForm.valid" color="primary">Save</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
+</div>

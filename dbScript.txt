@@ -1,0 +1,40 @@
+db.makes.insert({_id:"1", name:"Acura"})
+db.makes.insert({_id:"2", name:"Audi"})
+db.makes.insert({_id:"3", name:"Buick"})
+db.makes.insert({_id:"4", name:"Chevrolet"})
+db.makes.insert({_id:"5", name:"Ford"})
+db.makes.insert({_id:"6", name:"GMC"})
+db.makes.insert({_id:"7", name:"Honda"})
+db.makes.insert({_id:"8", name:"Jeep"})
+db.makes.insert({_id:"9", name:"Nissan"})
+db.makes.insert({_id:"10", name:"RAM"})
+db.makes.insert({_id:"11", name:"Toyota"})
+
+db.models.insert({_id:"1", name:"A4"})
+db.models.insert({_id:"2", name:"A7"})
+db.models.insert({_id:"3", name:"M5"})
+db.models.insert({_id:"4", name:"MDX"})
+db.models.insert({_id:"5", name:"Colorado"})
+db.models.insert({_id:"6", name:"Cruze"})
+db.models.insert({_id:"7", name:"Malibu"})
+
+db.styles.insert({_id:"1", name:"Convertible"})
+db.styles.insert({_id:"2", name:"Couple"})
+db.styles.insert({_id:"3", name:"Hatchback"})
+db.styles.insert({_id:"4", name:"Sedan"})
+db.styles.insert({_id:"5", name:"SUV / Crossover"})
+db.styles.insert({_id:"6", name:"Truck"})
+db.styles.insert({_id:"7", name:"Van/Minivan"})
+db.styles.insert({_id:"8", name:"Wagon"})
+
+
+db.conditions.insert({_id:"1", name:"New"})
+db.conditions.insert({_id:"2", name:"Used"})
+db.conditions.insert({_id:"3", name:"Certified"})
+
+db.dealers.insert({_id:"1", name:"Fesler Auto Mall",address:"1922 Highway 34, Fairfield, IA 52556", phone:'(641) 819-3033', website:''})
+db.dealers.insert({_id:"2", name:"Vaughn Automotive",address:"1311 Vaughn Dr, Ottumwa, IA 52501", phone:'(641) 575-0092', website:'http://www.vaughnautomotive.com'})
+db.dealers.insert({_id:"3", name:"Washington Auto Center",address:"1701 E WASHINGTON ST, WASHINGTON, IA 52353", phone:'(319) 458-4023', website:'http://www.washingtonautocenter.com'})
+
+
+db.users.insert({"username":"admin", "email":"admin@mum.edu", "password":"123456", "role":"admin"})

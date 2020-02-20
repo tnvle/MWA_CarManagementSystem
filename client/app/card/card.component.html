@@ -1,0 +1,58 @@
+<div 
+  gdAreas="header header | content content | footer footer"
+  gdGap="16px"
+  gdRows="auto auto auto"
+  gdAreas.lt-md="header | side | content | footer"
+  gdRows.lt-md="auto auto auto auto">
+  <div gdArea="header">
+    <h5 class="title">Price: {{car?.price | currency}}</h5>
+   </div>
+   
+  <div gdArea="content" *ngIf="mode == 'short'">
+      <a [routerLink]="['/cardetails/', car._id]">
+        <!-- <img src="../../assets/cars/sedan_lexus.jpg" class="img-card"/> -->
+        <img class="img-card" src="{{car.imagePath}}" alt="car image"/> 
+      </a>
+      <h6 >Car details:</h6>
+      <ul>
+        <li><b>Make:&nbsp;</b> {{car.make?.name}}</li>
+        <li><b>Model:&nbsp;</b> {{car.model?.name}}</li>
+        <li><b>Year:&nbsp;</b> {{car.year}}</li>
+        <li><b>Mileage:&nbsp;</b> {{car.mileage}}</li>
+      </ul>
+  </div>
+
+  <div gdArea="content" *ngIf="mode == 'detail' && car">
+    <!-- <img src="../../assets/cars/sedan_lexus.jpg" class="img-detail-card"/> -->
+    <img class="img-detail-card" src="{{car.imagePath}}" alt="car image"/> 
+    <mat-list>
+        <!-- <h6 >Car details:</h6> -->
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Make:&nbsp;</b> {{car.make?.name}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Model:&nbsp;</b> {{car.model?.name}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Style:&nbsp;</b> {{car.style?.name}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Condition:&nbsp;</b> {{car.condition?.name}}</mat-list-item>
+        
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Year:&nbsp;</b> {{car.year}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Mileage:&nbsp;</b> {{car.mileage}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Price:&nbsp;</b> {{car.price | currency}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Zipcode:&nbsp;</b> {{car.zipCode}}</mat-list-item>
+
+        <h3 matSubheader >Dealer</h3>
+        <mat-list-item><mat-icon >arrow_right</mat-icon> {{car.dealer?.name}}</mat-list-item>
+        <mat-list-item><mat-icon >arrow_right</mat-icon><b>Phone:&nbsp;</b> {{car.dealer?.phone}}</mat-list-item>
+        <mat-list-item *ngIf="car?.dealer?.website">
+          <mat-icon >arrow_right</mat-icon>
+          <a href="{{car.dealer?.website}}" target="_blank"> Website</a>
+        </mat-list-item>
+        
+     </mat-list>
+  </div>
+  <div gdArea="footer" *ngIf="isLoggedIn">
+    <button class="btn btn-sm btn-primary mr-2" (click)="saveCar()" *ngIf="!isFavorite">
+        <mat-icon>favorite</mat-icon> Save Car
+    </button>
+    <button class="btn btn-sm btn-primary mr-2" (click)="unsaveCar()" *ngIf="isFavorite">
+        <mat-icon>remove_circle_outline</mat-icon> Unsave Car
+    </button>
+  </div>
+</div>

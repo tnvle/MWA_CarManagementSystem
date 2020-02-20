@@ -1,0 +1,23 @@
+.card {
+    min-width: 80%;
+    
+  }
+  .container {
+      margin-top: 10px;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 100%;
+    align-items: center;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  a {
+    cursor: pointer;
+  }

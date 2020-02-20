@@ -1,0 +1,30 @@
+<tbody *ngIf="isEditing">
+    <tr>
+      <img src="{{car.imagePath}}" alt="car image"/>
+    </tr>
+    <tr>
+      <ul>
+        <li>Make: {{car.make?.name}}</li>
+        <li>Model: {{car.model?.name}}</li>
+        <li>Style: {{car.style?.name}}</li>
+        <li>Condition: {{car.condition?.name}}</li>
+        <li>Year: {{car.year}}</li>
+        <li>Mileage: {{car.mileage}}</li>
+        <li>Price: {{car.price}} $</li>
+       <li>Zipcode: {{car.zipCode}}</li>
+      </ul>
+    </tr>
+    <tr>
+        <td colspan="4">
+          <form class="form-inline" #form="ngForm" (ngSubmit)="editCar(car)">
+            <button class="btn btn-sm btn-primary mr-2" type="submit" *ngIf="auth.loggedIn">
+              <i class="fa fa-floppy-o"></i> Save Favorite Car
+            </button>
+            <button class="btn btn-sm btn-warning" (click)="cancelEditing()">
+              <i class="fa fa-times"></i> Back
+            </button>
+          </form>
+        </td>
+      </tr>
+
+</tbody>

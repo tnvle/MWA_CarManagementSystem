@@ -1,0 +1,37 @@
+/* .cardInner {
+    display: grid;
+    grid-template-areas: "header header" "content content" "footer footer";
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+  } */
+  :host {
+    display: block;
+    padding: 32px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  .img-card {
+    width: 220px;
+    height: auto;
+  }
+  .img-detail-card {
+    width: 300px;
+    height: auto;
+    float: left;
+  }
+  .details {
+    width: 220px;
+  }
+  .title {
+    color: indigo
+  }
+  .demo-2 {
+
+  }
+  .car-list-item {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+  }

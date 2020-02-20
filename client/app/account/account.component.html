@@ -1,0 +1,98 @@
+<!-- <app-loading [condition]="isLoading"></app-loading> -->
+
+<!-- <app-toast [message]="toast.message"></app-toast> -->
+
+<!-- <div class="card" *ngIf="!isLoading">
+  <h4 class="card-header">Account settings</h4>
+  <div class="card-body">
+    <form #accountForm="ngForm" (ngSubmit)="save(user)">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="username"
+               [(ngModel)]="user.username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="email" name="email"
+               [(ngModel)]="user.email" placeholder="Email" required>
+      </div> -->
+      <!-- <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-black-tie"></i>
+          </span>
+        </div>
+        <select class="custom-select" name="role" [(ngModel)]="user.role">
+          <option value="" disabled>Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div> -->
+      <!-- <button class="btn btn-primary" type="submit" [disabled]="!accountForm.form.valid">
+        <i class="fa fa-save"></i> Save
+      </button>
+    </form> 
+  </div>
+</div> -->
+
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="center center" class="content">
+    <mat-card class="card" >
+      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+        <h3>Account settings</h3>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="example-container mat-elevation-z8">
+            <form class="example-form" [formGroup]="accountForm" (ngSubmit)="save(user)">
+              <div class="row">
+                  <mat-form-field>
+                      <!-- <input matInput class="form-control" type="text" name="username"
+                      formControlName="username" placeholder="Username" autofocus> -->
+                      <!-- <input matInput class="form-control" type="text" name="username"
+                      [(ngModel)]="user.username" placeholder="Username" autofocus> -->
+                      <input matInput class="form-control" type="text" name="username"
+                      formControlName="username" placeholder="Username" [(ngModel)]="user.username">
+                    </mat-form-field>
+                </div>
+              <div class="row">
+                  <mat-form-field>
+                      <!-- <input matInput class="form-control" type="email" name="email"
+                      formControlName="email" placeholder="Email"> -->
+                      <input matInput class="form-control" type="email" name="email"
+                      formControlName="email" placeholder="Email" [(ngModel)]="user.email">
+                      <mat-error  *ngIf="accountForm.get('email').errors?.serverError">
+                          {{accountForm.get('email').errors?.serverError}}
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <input matInput class="form-control" type="password" name="password"
+                        formControlName="password" placeholder="Password" [(ngModel)]="user.password">
+                        <mat-error *ngIf="accountForm.get('password').errors">{{ getPasswordErrorMessage() }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <input matInput class="form-control" type="password" name="verifyPassword"
+                        formControlName="verifyPassword" placeholder="Verify Password">
+                        <mat-error *ngIf="accountForm.get('verifyPassword').errors?.mustMatch">Passwords do not match</mat-error>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button class="btn btn-primary" type="submit" [disabled]="!accountForm.valid">
+                    <i class="fa fa-user-plus"></i> Save
+                </button>
+              </form>      
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

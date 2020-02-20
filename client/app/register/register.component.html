@@ -1,0 +1,101 @@
+<!-- <p>register works!</p> -->
+<!-- <app-toast [message]="toast.message"></app-toast> -->
+<!-- 
+<div class="card">
+  <h4 class="card-header">Register</h4>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="input-group" [ngClass]="setClassUsername()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="username"
+               formControlName="username" placeholder="Username" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassEmail()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="email" name="email"
+               formControlName="email" placeholder="Email">
+      </div>
+      <div class="input-group" [ngClass]="setClassPassword()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-key"></i>
+          </span>
+        </div>
+        <input class="form-control" type="password" name="password"
+               formControlName="password" placeholder="Password">
+      </div> -->
+      <!-- <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-black-tie"></i>
+          </span>
+        </div>
+        <select class="custom-select" name="role" formControlName="role">
+          <option value="" selected disabled>Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div> -->
+      <!-- <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">
+        <i class="fa fa-user-plus"></i> Register
+      </button>
+    </form>
+  </div>
+</div> -->
+
+
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="center center" class="content">
+      <mat-card class="card" >
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <h3>New Account</h3>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="example-container mat-elevation-z8">
+              <form class="example-form" [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="row">
+                    <mat-form-field>
+                        <input matInput class="form-control" type="text" name="username"
+                        formControlName="username" placeholder="Username" autofocus>
+                    </mat-form-field>
+                  </div>
+                <div class="row">
+                    <mat-form-field>
+                        <input matInput class="form-control" type="email" name="email"
+                        formControlName="email" placeholder="Email">
+                        <mat-error  *ngIf="registerForm.get('email').errors?.serverError">
+                            {{registerForm.get('email').errors?.serverError}}
+                        </mat-error>
+                    </mat-form-field>
+                  </div>
+                <div class="row">
+                    <mat-form-field>
+                        <input matInput class="form-control" type="password" name="password"
+                        formControlName="password" placeholder="Password">
+                        <mat-error *ngIf="registerForm.get('password').errors">{{ getPasswordErrorMessage() }}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <input matInput class="form-control" type="password" name="verifyPassword"
+                        formControlName="verifyPassword" placeholder="Verify Password" >
+                        <mat-error *ngIf="registerForm.get('verifyPassword').errors?.mustMatch">Passwords do not match</mat-error>
+                    </mat-form-field>
+                </div>
+                  <button mat-raised-button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">
+                      <i class="fa fa-user-plus"></i> Register
+                  </button>
+                </form>      
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

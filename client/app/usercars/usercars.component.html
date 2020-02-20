@@ -1,0 +1,158 @@
+<app-loading [condition]="isLoading"></app-loading>
+
+<!-- <app-toast [message]="toast.message"></app-toast>  -->
+
+<!--<div class="card mb-3" *ngIf="!isLoading">-->
+<!--  <h4 class="card-header" *ngIf="!isViewDetails">Current cars ({{cars.length}})</h4>-->
+<!--  <h4 class="card-header" *ngIf="isViewDetails">View Car Details</h4>-->
+<!--  <div class="card-body">-->
+<!--    <table class="table table-bordered">-->
+<!--      <thead class="thead-light">-->
+<!--        <tr *ngIf="!isViewDetails">-->
+<!--          &lt;!&ndash; <th scope="col">Make</th> &ndash;&gt;-->
+<!--          <th scope="col">Make</th>-->
+<!--          <th scope="col">Model</th>-->
+<!--          <th scope="col">Style</th>-->
+<!--          <th scope="col">Actions</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--      <tbody *ngIf="cars.length === 0">-->
+<!--        <tr>-->
+<!--          <td colspan="4">There are no cars in the DB. Add a new car below.</td>-->
+<!--        </tr>-->
+<!--      </tbody>-->
+<!--      <tbody *ngIf="!isEditing">-->
+<!--        <tr *ngFor="let car of cars">-->
+<!--          &lt;!&ndash; <td>{{car.make}}</td> &ndash;&gt;-->
+<!--          <td>Make: {{car.make?.name}}</td>-->
+<!--          <td>Model: {{car.model?.name}}</td>-->
+<!--          <td>Style: {{car.style?.name}}</td>-->
+<!--          <td>-->
+<!--            <button class="btn btn-sm btn-primary" (click)="enableViewDetails(car)">-->
+<!--              <i class="fa fa-pencil"></i> View Details-->
+<!--            </button>-->
+<!--            &lt;!&ndash; <button class="btn btn-sm btn-danger ml-1" (click)="deleteCar(car)">-->
+<!--              <i class="fa fa-trash"></i> Delete-->
+<!--            </button> &ndash;&gt;-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--      </tbody>-->
+<!--      <tbody *ngIf="isEditing">-->
+<!--        <tr>-->
+<!--          <img src="{{car.imagePath}}" alt="car image"/>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <ul>-->
+<!--            <li>Make: {{car.make?.name}}</li>-->
+<!--            <li>Model: {{car.model?.name}}</li>-->
+<!--            <li>Style: {{car.style?.name}}</li>-->
+<!--            <li>Condition: {{car.condition?.name}}</li>-->
+<!--            <li>Year: {{car.year}}</li>-->
+<!--            <li>Mileage: {{car.mileage}}</li>-->
+<!--            <li>Price: {{car.price}} $</li>-->
+<!--            <li>Zipcode: {{car.zipCode}}</li>-->
+<!--          </ul>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td colspan="4">-->
+<!--              <form class="form-inline" #form="ngForm" (ngSubmit)="editCar(car)">-->
+<!--                <button class="btn btn-sm btn-primary mr-2" type="submit" *ngIf="auth.loggedIn">-->
+<!--                  <i class="fa fa-floppy-o"></i> Save Favorite Car-->
+<!--                </button>-->
+<!--                <button class="btn btn-sm btn-warning" (click)="cancelEditing()">-->
+<!--                  <i class="fa fa-times"></i> Back-->
+<!--                </button>-->
+<!--              </form>-->
+<!--            </td>-->
+<!--          </tr>-->
+
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- 
+
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="center center" class="content">
+    <mat-card class="card"  *ngIf="!isEditing">
+      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+        <h3>List of cars</h3>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="cars">
+            <ng-container matColumnDef="image">
+              <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+              <mat-cell *matCellDef="let car"> <img class="imgview" src="{{car.imagePath}}" alt="car image"/> </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="make">
+              <mat-header-cell *matHeaderCellDef> Make </mat-header-cell>
+              <mat-cell *matCellDef="let car"> {{car.make?.name}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="model">
+              <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+              <mat-cell *matCellDef="let car"> {{car.model?.name}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="style">
+              <mat-header-cell *matHeaderCellDef> Style </mat-header-cell>
+              <mat-cell *matCellDef="let car"> {{car.style?.name}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="condition">
+              <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+              <mat-cell *matCellDef="let car"> {{car.condition?.name}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="year">
+              <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+              <mat-cell *matCellDef="let car"> {{car.year}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="price">
+              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+              <mat-cell *matCellDef="let car"> {{car.price}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="view">
+              <mat-header-cell *matHeaderCellDef></mat-header-cell>
+              <mat-cell *matCellDef="let car">
+                <a
+                  type="button" (click)="enableViewDetails(car)">
+                  <mat-icon class="icon">View</mat-icon>
+                </a>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          </mat-table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> -->
+
+<!-- <div class="container" *ngIf="isEditing"> -->
+  <div class="container">
+  <div fxLayout="row" fxLayoutAlign="center center" class="content">
+    <mat-card class="card" >
+      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+        <h3>View Car in details</h3>
+      </mat-card-title>
+      <!-- <mat-card-content> -->
+        <!-- <div class="example-container mat-elevation-z8"> -->
+              <!-- <div 
+                  fxLayout="row wrap" 
+                  fxLayout.lt-sm="column" 
+                  fxLayoutGap="32px" 
+                  fxLayoutAlign="flex-start"> -->
+                      <app-card class="noborder" [car]="car" [mode]="'detail'"
+                          fxFlex="0 1 calc(33.3% - 32px)"
+                          fxFlex.lt-md="0 1 calc(50% - 32px)"
+                          fxFlex.lt-sm="100%"
+                          >
+                      </app-card>
+              <!-- </div> -->
+        <!-- </div> -->
+      <!-- </mat-card-content> -->
+    </mat-card>
+
+  </div>
+</div>
